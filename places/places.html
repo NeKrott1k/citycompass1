@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places</title>
+    <link rel="stylesheet" href="./css/places.css">
+    <script src="./places.js" defer></script>
+</head>
+
+<body>
+<!-- header start -->
+    <header class="header">
+        <img src="./img/logo.png" alt="logo" class="header__logo">
+    <div class="header__menu menu">
+            <div class="menu__burger-icon" id="burger">
+                <div class="menu__burger-line"></div>
+                <div class="menu__burger-line"></div>
+                <div class="menu__burger-line"></div>
+            </div>
+            <ul class="menu__points">
+                <li><a href="../index.html" class="menu__point">Главная</a></li>
+                <li><a href="../places/places.html" class="menu__point">список интересных мест</a></li>
+                <li><a href="../contacts/contacts.html" class="menu__point">контакты</a></li>
+            </ul>
+
+        <div class="menu__search-and-filter">
+            <div class="menu__search">
+                <div class="menu__icon"></div>
+                <form class="menu__input">
+                    <input id="mySearch" type="text" placeholder="Поиск...">
+                </form>
+                <span class="menu__clear"></span>
+            </div>
+
+            <button class="menu__filter-button" id="filter-button"><img src="./img/Vector.svg" alt="" class="header__filter-img"></button>
+
+            <div id="filter-modal" class="menu__modal">
+                <div class="menu__modal-content">
+                    <span id="close-modal" class="menu__close">&times;</span>
+                    <h2>Выберите фильтры</h2>
+                    <label>
+                        <input type="checkbox" value="памятники"> Памятники
+                    </label>
+                    <label>
+                        <input type="checkbox" value="галлереи"> Галлереи
+                    </label>
+                    <label>
+                        <input type="checkbox" value="музеи"> Музеи
+                    </label>
+                    <div class="menu__filter-buttons">
+                        <button id="apply-filters" class="menu__filter-btns">Применить</button>
+                        <button id="reset-filters" class="menu__filter-btns">Сбросить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </header>
+<!-- header end -->
+
+
+<!-- burger menu start -->
+<div class="menu-burger" id="menu">
+    <ul class="menu-burger__points">
+        <li class="menu-burger__li"><a href="./places/places.html" class="menu-burger__point">список интересных мест</a></li>
+        <li class="menu-burger__li"><a href="./index.html" class="menu-burger__point">Главная</a></li>
+        <li class="menu-burger__li"><a href="./contacts/contacts.html" class="menu-burger__point">контакты</a></li>
+    </ul>
+</div>
+<!-- burger menu end -->
+
+
+
+
+
+    <section class="first_screen">
+        <div class="first_screen__titles">
+            <h2 class="first_screen__title1">достопримечательности</h2>
+            <h2 class="first_screen__title2">(интересные места)</h2>
+        </div>
+
+
+
+        <div class="first_screen__slider-container">
+            <div class="first_screen__slider">
+
+                <div class="first_screen__slide" data-category="музеи">
+                    <img src="./img/museum_tolstoy.png" alt="" class="first_screen__places-img">
+                    <div class="first_screen__text-posters">
+                        <p>Музей Л. Н. Толстого</p>
+                        <a href="https://yandex.ru/maps/org/muzey_l_n_tolstogo/1549299104/?ll=43.039022%2C44.133042&z=16.81"
+                            class="first_screen__posters-btn">подробнее <img src="./img/Arrow.svg" alt="" class="first-screen__arrow"></a>
+                    </div>
+                </div>
+
+
+                <div class="first_screen__slide" data-category="памятники">
+                    <img src="./img/statue_eagle.png" alt="" class="first_screen__places-img">
+                    <div class="first_screen__text-posters">
+                        <p>Статуя орла</p>
+                        <a href="https://yandex.ru/maps/11058/zheleznovodsk/?ll=43.048162%2C44.136604&mode=poi&poi%5Bpoint%5D=43.048553%2C44.136743&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D111889076298&z=18.7"
+                            class="first_screen__posters-btn">подробнее <img src="./img/Arrow.svg" alt="" class="first-screen__arrow"></a>
+                    </div>
+                </div>
+
+
+                <div class="first_screen__slide" data-category="памятники">
+                    <img src="./img/heart.png" alt="" class="first_screen__places-img">
+                    <div class="first_screen__text-posters">
+                        <p>«Сердце Железноводска»</p>
+                        <a href="https://yandex.ru/maps/11058/zheleznovodsk/?ll=43.047498%2C44.136604&mode=poi&poi%5Bpoint%5D=43.046338%2C44.136739&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D167325857338&z=18.7"
+                            class="first_screen__posters-btn">подробнее <img src="./img/Arrow.svg" alt="" class="first-screen__arrow"></a>
+                    </div>
+                </div>
+
+                <div class="first_screen__slide" data-category="галлереи">
+                    <img src="./img/pushkin_gallery.png" alt="" class="first_screen__places-img">
+                    <div class="first_screen__text-posters">
+                        <p>пушкинская галлерея</p>
+                        <a href="https://yandex.ru/maps/11058/zheleznovodsk/?ll=43.034035%2C44.134723&mode=poi&poi%5Bpoint%5D=43.031589%2C44.135049&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D194223578804&z=16.9"
+                            class="first_screen__posters-btn">подробнее <img src="./img/Arrow.svg" alt="" class="first-screen__arrow"></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="first_screen__slider-controls">
+                <button class="first_screen__prev-btn">←</button>
+                <div class="first_screen__pagination">
+                    <span class="first_screen__dot">1</span>
+                    <span class="first_screen__dot">2</span>
+                    <span class="first_screen__dot">3</span>
+                    <span class="first_screen__dot">4</span>
+                </div>
+                <button class="first_screen__next-btn">→</button>
+            </div>
+
+        </div>
+        <div class="first_screen__container-plant">
+            <img src="./img/plant.png" alt="" class="first_screen__plant">
+        </div>
+    </section>
+
+
+    <secion class="footer">
+        <div class="footer__content">
+            <div class="footer__points">
+                <a href="../index.html" class="footer__point">Главная</a>
+                <a href="../contacts/contacts.html" class="footer__point">контакты</a>
+                <a href="../places/places.html" class="footer__point">список интересных мест</a>
+            </div>
+        </div>
+        <div class="footer__icons">
+            <img src="./img/tg logo.svg" alt="tg" class="footer__tg">
+            <img src=".//img/vk logo.svg" alt="vk" class="footer__vk">
+            <img src="./img/ds.svg" alt="ds" class="footer__ds">
+        </div>
+    </secion>
+</body>
+
+</html>

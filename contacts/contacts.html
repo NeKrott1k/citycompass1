@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="./css/contacts.css">
+    <script src="contacts.js" defer></script>
+</head>
+
+<body>
+    <!-- header start -->
+    <header class="header">
+        <img src="./img/logo.png" alt="logo" class="header__logo">
+        <div class="header__menu menu">
+            <div class="menu__burger-icon" id="burger">
+                <div class="menu__burger-line"></div>
+                <div class="menu__burger-line"></div>
+                <div class="menu__burger-line"></div>
+            </div>
+            <ul class="menu__points">
+                <li><a href="../index.html" class="menu__point">Главная</a></li>
+                <li><a href="../places/places.html" class="menu__point">список интересных мест</a></li>
+                <li><a href="./contacts.html" class="menu__point">контакты</a></li>
+            </ul>
+        </div>
+    </header>
+<!-- header end -->
+
+
+<!-- burger menu start -->
+    <div class="menu-burger" id="menu">
+        <ul class="menu-burger__points">
+            <li class="menu-burger__li"><a href="../places/places.html" class="menu-burger__point">список интересных мест</a></li>
+            <li class="menu-burger__li"><a href="../index.html" class="menu-burger__point">Главная</a></li>
+            <li class="menu-burger__li"><a href="./contacts/contacts.html" class="menu-burger__point">контакты</a></li>
+        </ul>
+    </div>
+<!-- burger menu end -->
+
+
+
+
+
+
+    <section class="first-screen">
+        <div class="first-screen__title-container">
+            <h2 class="first-screen__title">Контакты</h2>
+            <h2 class="first-screen__title1">хотите оформить наилучший тур в своей жизни?</h2>
+            <h2 class="first-screen__text">напиши в любую удобную соц. сеть, или позвони по тел.</h2>
+        </div>
+        <div class="first-screen__container">
+            <img src="./img/vetka.png" alt="vetka" class="first-screen__img">
+        </div>
+
+        <div class="first-screen__info">
+
+            <div class="first-screen__phone">
+                <img src="./img/phone.svg" alt="phone" class="first-screen__icon">
+                <p>8 (800) 555-35-35</p>
+            </div>
+
+            <div class="first-screen__loc">
+                <img src="./img/location.png" alt="location" class="first-screen__icon">
+                <p>Остров Мужика</p>
+            </div>
+
+            <div class="first-screen__tg">
+                <img src="./img/tg logo.svg" alt="tg" class="first-screen__icon">
+                <p>@example.tg</p>
+            </div>
+        </div>
+
+        <div class="first-screen__button">
+            <a id="open-modal-btn" class="first-screen__btn">связаться с нами</a>
+        </div>
+    </section>
+
+    <secion class="footer">
+        <div class="footer__content">
+            <div class="footer__points">
+                <a href="#" class="footer__point">Главная</a>
+                <a href="#" class="footer__point">контакты</a>
+                <a href="#" class="footer__point">список интересных мест</a>
+            </div>
+        </div>
+        <div class="footer__icons">
+            <img src=".//img/vk logo.svg" alt="tg" class="footer__vk">
+            <img src="./img/ds.svg" alt="ds" class="footer__ds">
+        </div>
+    </secion>
+
+
+        <section class="modal" id="my-modal">
+            <div class="modal__button-main" id="close-my-modal-btn">
+                <a href="#" class="modal__main-btn">назад</a>
+                <img src="./img/Arrow 5.svg" alt="---" class="button-main__button-arrow" width="30px">
+            </div>
+            <div class="modal__page" id="rectangle">
+                <h2 class="modal__title">Оставьте заявку</h2>
+                <div class="modal__container-img">
+                    <img src="./img/leaves.png" alt="leaves" class="first-screen__img">
+                </div>
+
+                <div class="modal__points">
+                    <p class="modal__points-title">номер телефона</p>
+                    <input type="phone" id="phone" name="phone">
+                    <p class="modal__points-title">e-mail</p>
+                    <input type="email" id="email" name="email">
+                    <p class="modal__points-title">место посещения</p>
+                    <select name="place" id="place-select">
+                        <option value="petersburg">каскадная лестница</option>
+                        <option value="samara">гора машук</option>
+                        <option value="perm">озеро тридцатка</option>
+                        <option value="novosibirsk">Санаторий «Машук Аква-Терм»</option>
+                    </select>
+                </div>
+
+                <div class="modal__button">
+                    <a href="#" class="modal__btn">отправить</a>
+                </div>
+            </div>
+        </section>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityCompass</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <div class="okay">
+        <div class="okay__video-back">
+            <video autoplay muted loop id="myVideo">
+                <source src="./img/7020109_Jungle_Forest_3840x2160.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+
+
+<!-- header start -->
+    <header class="header">
+        <img src="./img/logo.png" alt="logo" class="header__logo">
+        <div class="header__menu menu">
+            <div class="menu__burger-icon" id="burger">
+                <div class="menu__burger-line"></div>
+                <div class="menu__burger-line"></div>
+                <div class="menu__burger-line"></div>
+            </div>
+            <ul class="menu__points">
+                <li><a href="./index.html" class="menu__point">Главная</a></li>
+                <li><a href="./places/places.html" class="menu__point">список интересных мест</a></li>
+                <li><a href="./contacts/contacts.html" class="menu__point">контакты</a></li>
+            </ul>
+        </div>
+    </header>
+<!-- header end -->
+
+
+<!-- burger menu start -->
+    <div class="menu-burger" id="menu">
+        <ul class="menu-burger__points">
+            <li class="menu-burger__li"><a href="./places/places.html" class="menu-burger__point">список интересных мест</a></li>
+            <li class="menu-burger__li"><a href="./index.html" class="menu-burger__point">Главная</a></li>
+            <li class="menu-burger__li"><a href="./contacts/contacts.html" class="menu-burger__point">контакты</a></li>
+        </ul>
+    </div>
+<!-- burger menu end -->
+
+
+<!-- first screen start -->
+    <section class="first-screen">
+        <div class="first-screen__container">
+            <h2 class="first-screen__title">откройте город</h2>
+            <h2 class="first-screen__title1">заново</h2>
+            <p class="first-screen__text">CityCompass — это ваш идеальный путеводитель по городам мира. Мы
+                предлагаем
+                вам уникальные экскурсии, подробные описания главных достопримечательностей, интересные факты о
+                культуре
+                и истории каждого города. </p>
+        </div>
+    </section>
+    </div>
+<!-- first screen end -->
+
+
+<!-- second screen start -->
+    <section class="second-screen">
+        <div class="second-screen__content">
+            <h2 class="second-screen__title">железноводск</h2>
+            <p class="second-screen__text">(можете потыкать)</p>
+        </div>
+    </section>
+
+    <div class="slider">
+        <div class="slider__line">
+            <img src="./img/caption (3).png" alt="" class="slider__img">
+            <img src="./img/caption (4).png" alt="" class="slider__img">
+            <img src="./img/caption (5).png" alt="" class="slider__img">
+            <img src="./img/img-slider.png" alt="" class="slider__img">
+            <img src="./img/photo-2-screen.png" alt="" class="slider__img">
+        </div>
+
+        <button class="slider__btn-prev"><</button>
+        <button class="slider__btn-next">></button>
+    </div>
+<!-- second screen end -->
+
+
+
+<!-- third screen start -->
+    <section class="third-screen">
+        <h2 class="third-screen__title">Немного о городе</h2>
+        <div class="third-screen__container-mint">
+            <img src="./img/mint-table right.png" alt="leaves" class="third-screen__mint">
+        </div>
+
+        <div class="third-screen__container-mint1">
+            <img src="./img/mint-table left.png" alt="leaves" class="third-screen__mint1">
+        </div>
+
+        <div class="third-screen__content">
+            <div class="third-screen__rectangle" id="rectangle">
+                <p class="third-screen__text-top-bottom">Железноводск — это уютный город-курорт, расположенный у
+                    подножия
+                    Кавказских гор.</p>
+            </div>
+
+            <div class="third-screen__content-center">
+                <div class="third-screen__rectangle1" id="rectangle">
+                    <p class="third-screen__text-right">Его живописные пейзажи восхищают: зелёные возвышенности, чистые
+                        источники
+                        и теплые минеральные воды создают атмосферу умиротворения.</p>
+                </div>
+                <div class="third-screen__rectangle1" id="rectangle">
+                    <p class="third-screen__text-left">Прогуливаясь по городу, можно насладиться свежим воздухом и
+                        наслаждаться
+                        видами на величественные горные массивы. </p>
+                </div>
+            </div>
+
+            <div class="third-screen__rectangle" id="rectangle">
+                <p class="third-screen__text-top-bottom">Железноводск — это оазис здоровья и красоты, приглашающий в мир
+                    природного спокойствия и гармонии.</p>
+            </div>
+        </div>
+    </section>
+<!-- third screen end -->
+
+
+<!-- third screen start -->
+    <section class="fourth-screen">
+        <h2 class="fourth-screen__title">карта города</h2>
+        <div class="fourth-screen__map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22905.157062156315!2d42.9974624123903!3d44.142262446150845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40579f07d2777f7d%3A0xdef3a9d9f6ddad17!2z0JbQtdC70LXQt9C90L7QstC-0LTRgdC6LCDQodGC0LDQstGA0L7Qv9C-0LvRjNGB0LrQuNC5INC60YDQsNC5!5e0!3m2!1sru!2sru!4v1728827624347!5m2!1sru!2sru"
+                style="border-radius:8px;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+<!-- third screen end -->
+
+
+<!-- footer start -->
+    <secion class="footer">
+        <div class="footer__content">
+            <div class="footer__points">
+                <a href="./index.html" class="footer__point">Главная</a>
+                <a href="./contacts/contacts.html" class="footer__point">контакты</a>
+                <a href="./places/places.html" class="footer__point">список интересных мест</a>
+            </div>
+        </div>
+        <div class="footer__icons">
+            <img src="./img/tg logo.svg" alt="tg" class="footer__tg">
+            <img src=".//img/vk logo.svg" alt="tg" class="footer__vk">
+            <img src="./img/ds.svg" alt="tg" class="footer__ds">
+        </div>
+    </secion>
+<!-- footer end -->
+
+</body>
+
+</html>
