@@ -1,28 +1,24 @@
 @font-face {
     font-family: 'Neutral Face';
     src: url(../fonts/NeutralFace-Bold.woff2) format(woff2);
-    // src: url(../fonts/NeutralFace-Bold.ttf) format("truetype");
     font-weight: 900;
 }
 
 @font-face {
     font-family: 'Neutral Face';
     src: url(../fonts/NeutralFace-regular.woff2) format(woff2);
-    // src: url(../fonts/NeutralFace-regular.ttf) format("truetype");
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'AC Line';
     src: url(../fonts/ACLine.woff2) format(woff2);
-    // src: url(../fonts/ACLine.ttf) format("truetype");
     font-weight: 200;
 }
 
 @font-face {
     font-family: 'Rozovii Chulok';
     src: url(../fonts/rozoviichulok-regular.woff2) format(woff2);
-    // src: url(../fonts/rozoviichulok-regular.ttf) format("truetype");
     font-weight: 200;
 }
 
@@ -67,6 +63,24 @@ ul {
 }
 
 
+
+
+h2 {
+    color: white;
+    font-family: 'Neutral Face';
+    font-weight: 900;
+    
+}
+p {
+    max-width: 400px;
+    color: white;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+
 .menu__search.active {
     width: 350px;
 }
@@ -96,8 +110,6 @@ ul {
      }
 
 }
-
-
 
 .menu {
     flex-direction: row;
@@ -246,7 +258,7 @@ ul {
         content: '';
         width: 15px;
         height: 15px;
-        border: 3px solid #051F20;
+        border: 4px solid #051F20;
         border-radius: 50%;
         transform: translate(-2px, -2px);
     }
@@ -349,7 +361,7 @@ ul {
     }
 
     &__modal-content {
-        background-color: #62925e8a;
+        background-color: #31612c;
         margin: 15% auto;
         padding: 40px;
         border: 0;
@@ -372,6 +384,7 @@ ul {
         float: right;
         font-size: 28px;
         font-weight: bold;
+        cursor: pointer;
     }
 
     label {
@@ -418,10 +431,6 @@ ul {
     top: 230px;
     transition: all 0.5s ease;
     display: none;
-    // @media (max-width: 426px) {
-    //     display: none;
-    // }
-
    
     &__point{
         font-family: 'AC Line';
@@ -512,18 +521,13 @@ ul {
         }
     }
 
-    &__slider-container {
-        position: relative;
-        max-width: 551px;
-        overflow: hidden;
-        @media(max-width: 426px) {
-            width: 300px;
-        }
-    }
-
     &__slider {
         display: flex;
-        transition: transform 0.5s ease-in-out;
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        justify-content: center;
     }
 
     &__slide {
@@ -531,8 +535,37 @@ ul {
         flex-direction: column;
         gap: 51px;
         box-sizing: border-box;
-        // min-width: 551px;
+        display: none;
+    }
 
+    &__slide.active{
+        display: block;
+    }
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+    }
+
+    &__info-btn{
+        background-color: transparent;
+        border: none;
+        font-family: 'AC Line';
+        font-size: 20px;
+        font-weight: 400;
+        color: white;
+        cursor: pointer;
+    }
+
+    &__info-button{
+        gap: 10px;
+        display: flex;
+
+        img {
+            max-width: 40px;
+        }
     }
 
 
@@ -546,7 +579,6 @@ ul {
     &__container {
         display: flex;
         align-items: center;
-        // gap: 192px;
 
         @media(max-width: 426px) {
             min-width: 300px;
@@ -579,7 +611,6 @@ ul {
     &__slider-controls {
         display: flex;
         justify-content: center;
-        align-items: center;
         margin-top: 50px;
         align-items: center;
         gap: 150px;
@@ -593,12 +624,12 @@ ul {
     &__next-btn {
         background: none;
         border: none;
-        font-size: 32px;
+        font-size: 48px;
         cursor: pointer;
         padding: 5px;
         outline: none;
-        color: $icon_color;
-        font-family: 'AC Line';
+        color: #97BF8D;
+        font-family: "AC Line";
 
         @media(max-width: 426px) {
             font-size: 24px;
@@ -608,19 +639,27 @@ ul {
 
     &__pagination {
         display: flex;
-        gap: 5px;
+        gap: 10px;
+    }
+
+
+     &__pagin {
+        display: flex;
+        gap: 10px;
     }
 
     &__dot {
-        width: 30px;
-        height: 30px;
-        background-color: $title_color;
+        width: 45px;
+        height: 45px;
+        background-color: #CBF2C6;
         border-radius: 50%;
         cursor: pointer;
-        font-family: 'Neutral Face';
+        font-family: "Neutral Face";
         color: #000;
-        padding: 5px 5px;
-        font-size: 12px;
+        padding: 14px 18px;
+        font-size: 14px;
+        gap: 10px;
+        display: flex;
 
         @media(max-width: 426px) {
             width: 25px;
@@ -631,6 +670,32 @@ ul {
 
     &__dot.active {
         background-color: #0dabb1;
+    }
+
+
+    &__loader {
+        display: none;
+        text-align: center;
+        font-size: 32px;
+        color: white;
+        font-family: 'AC Line';
+    }
+
+    &__loader.active {
+        display: block;
+    }
+
+    &__slide {
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+
+    &__slide img {
+        // max-width: 600px;
+        max-height: 700px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
     }
 
     &__plant {
@@ -649,12 +714,102 @@ ul {
         z-index: 0;
         right: 0;
         // left: 0;
-        top: 750px;
+        top: 800px;
         @media(max-width: 426px) {
             display: none;
         }
     }
 }
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+
+    &__content {
+        background-color: $bg_color;
+        margin: 15% auto;
+        padding: 30px;
+        border: none;
+        border-radius: 15px;
+        max-width: 1100px;
+        gap: 10px;
+        transition: 0.4s ease-in-out;
+        box-shadow: 0px 0px 35px #ffffffb5;
+    }
+
+
+    &__close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    &__close:hover,
+    &__close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    &__place-img {
+        width: 500px;
+        height: 60%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    &__place-img1 {
+        width: 1050px;
+        height: auto;
+        margin-bottom: 40px;
+    }
+
+    #photos{
+        justify-content: space-between;
+        display: flex;
+    }
+    
+    h2 {
+        color: $icon_color;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    &__loc-text{
+        text-align: right;
+        max-width: 300px;
+    }
+
+    &__text-content{
+        gap: 30px;
+        display: flex;
+        flex-direction: row;
+        margin: 40px 15px;
+        justify-content: space-between;
+    }
+
+    &__location{
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
+
 
 
 .footer {
@@ -724,3 +879,6 @@ ul {
         }
     }
 }
+
+
+

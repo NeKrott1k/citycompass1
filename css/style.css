@@ -513,7 +513,7 @@ ul {
     padding: 0;
   }
 }
-.third-screen__mint {
+.third-screen__container-mint {
   text-align: center;
   justify-content: center;
   flex-direction: column;
@@ -525,11 +525,11 @@ ul {
   top: 2950px;
 }
 @media (max-width: 426px) {
-  .third-screen__mint {
+  .third-screen__container-mint {
     display: none;
   }
 }
-.third-screen__mint1 {
+.third-screen__container-mint1 {
   text-align: center;
   justify-content: center;
   flex-direction: column;
@@ -541,7 +541,7 @@ ul {
   top: 3566px;
 }
 @media (max-width: 426px) {
-  .third-screen__mint1 {
+  .third-screen__container-mint1 {
     display: none;
   }
 }
