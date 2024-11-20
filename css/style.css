@@ -104,9 +104,6 @@ ul {
     padding: 0;
   }
 }
-.header__logo {
-  fill: #000;
-}
 @media (max-width: 426px) {
   .header__logo {
     position: relative;
