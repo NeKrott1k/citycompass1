@@ -66,6 +66,7 @@ ul {
     align-items: center;
     justify-content: center;
     text-align: center;
+    opacity: 0.5;
 
     @media(max-width: 426px) {
         height: 700px;
@@ -120,9 +121,7 @@ ul {
     }
 
     &__logo {
-        margin-left: 64px;
-        margin-right: 64px;
-        justify-content: start;
+        fill: #000;
 
         @media(max-width: 426px) {
             position: relative;

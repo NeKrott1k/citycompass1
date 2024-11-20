@@ -54,6 +54,7 @@ ul {
   align-items: center;
   justify-content: center;
   text-align: center;
+  opacity: 0.5;
 }
 @media (max-width: 426px) {
   #myVideo {
@@ -104,9 +105,7 @@ ul {
   }
 }
 .header__logo {
-  margin-left: 64px;
-  margin-right: 64px;
-  justify-content: start;
+  fill: #000;
 }
 @media (max-width: 426px) {
   .header__logo {

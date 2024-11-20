@@ -73,7 +73,7 @@ input {
 .header {
   padding-left: 100px;
   padding-right: 100px;
-  padding-top: 65px;
+  padding-top: 100px;
 }
 @media (max-width: 426px) {
   .header {
@@ -81,11 +81,6 @@ input {
     margin: 0 auto;
     padding: 0;
   }
-}
-.header__logo {
-  margin-left: 64px;
-  margin-right: 64px;
-  justify-content: start;
 }
 @media (max-width: 426px) {
   .header__logo {
