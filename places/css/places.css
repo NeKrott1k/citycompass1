@@ -417,6 +417,12 @@ input {
   opacity: 0;
   animation: ShowTitles 0.5s 1s linear forwards;
 }
+@media (max-width: 426px) {
+  .first_screen__titles {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
 @keyframes ShowTitles {
   to {
     opacity: 1;
@@ -459,8 +465,8 @@ input {
 @media (max-width: 426px) {
   .first_screen__search-and-filter {
     position: relative;
-    bottom: 150px;
-    right: 150px;
+    bottom: 60px;
+    right: 125px;
   }
 }
 @media (min-width: 1920px) {
