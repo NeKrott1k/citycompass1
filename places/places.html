@@ -15,12 +15,14 @@
     <header class="header">
         <img src="./img/logo.png" alt="logo" class="header__logo">
     <div class="header__menu menu">
+        <!-- <img src="./img/logo.svg" alt="logo" class="header__logo"> -->
             <div class="menu__burger-icon" id="burger">
                 <div class="menu__burger-line"></div>
                 <div class="menu__burger-line"></div>
                 <div class="menu__burger-line"></div>
             </div>
             <ul class="menu__points">
+                <img src="./img/logo.svg" alt="logo" class="menu__logo">
                 <li><a href="../index.html" class="menu__point">Главная</a></li>
                 <li><a href="../places/places.html" class="menu__point">список интересных мест</a></li>
                 <li><a href="../contacts/contacts.html" class="menu__point">контакты</a></li>
@@ -29,12 +31,12 @@
         
         <div class="menu__search-and-filter">
             <!-- search start -->
-            <div class="menu__search">
-                <div class="menu__icon"></div>
+            <div class="menu__search" id="search-div">
+                <div class="menu__icon" id="search-icon"></div>
                 <form class="menu__input">
                     <input type="text" id="mySearch" placeholder="Поиск...">
                 </form>
-                <span class="menu__clear"></span>
+                <span class="menu__clear" id="search-clear"></span>
             </div>
             <!-- search end -->
             <button class="menu__filter-button" id="filter-button"><img src="./img/Vector.svg" alt="" class="header__filter-img"></button>
@@ -74,6 +76,35 @@
         <div class="first_screen__titles">
             <h2 class="first_screen__title1">достопримечательности</h2>
             <h2 class="first_screen__title2">(интересные места)</h2>
+        </div>
+
+
+        <div class="first_screen__search-and-filter">
+            <!-- search start -->
+            <div class="first_screen__search" id="search-div">
+                <div class="first_screen__icon" id="search-icon"></div>
+                <form class="first_screen__input">
+                    <input type="text" id="mySearch" placeholder="Поиск...">
+                </form>
+                <span class="first_screen__clear" id="search-clear"></span>
+            </div>
+            <!-- search end -->
+            <button class="first_screen__filter-button" id="filter-button"><img src="./img/Vector.svg" alt="" class="header__filter-img"></button>
+
+            <div id="filter-modal" class="first_screen__modal">
+                <div class="first_screen__modal-content">
+                    <span id="close-modal" class="first_screen__close">&times;</span>
+                    <h2>Выберите фильтры</h2>
+                        <label><input type="checkbox" value="Санатории"> Санатории</label>
+                        <label><input type="checkbox" value="Арт-объекты"> Арт-объекты</label>
+                        <label><input type="checkbox" value="Галлереи"> Галлереи</label>
+                        <label><input type="checkbox" value="Скульптуры"> Скульптуры</label>
+                    <div class="first_screen__filter-buttons">
+                        <button id="apply-filters" class="first_screen__filter-btns">Применить</button>
+                        <button id="reset-filters" class="first_screen__filter-btns">Сбросить</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
             <div id="attractions" class="first_screen__slider">

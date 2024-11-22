@@ -143,40 +143,40 @@ function hideLoader() {
 
 
 // Функция для отображения модального окна
-filterButton.onclick = function() {
+filterButton.addEventListener('click', () => {
     modal_filter.style.display = 'block';
     // loadFilters();
-}
+});
 
 
 // Функция для закрытия модального окна
-closeModal.onclick = function() {
+closeModal.addEventListener('click', () => {
     modal_filter.style.display = 'none';
-}
+});
  
 
 // Обнаружение клика за пределами модального окна
-window.onclick = function(event) {
+window.addEventListener("click", (event) => {
     if (event.target === modal_filter) {
         modal_filter.style.display = 'none';
     }
-}
+});
                             
 
 // Применение фильтров
-applyFiltersButton.onclick = function() {
+applyFiltersButton.addEventListener('click', () => {
   const selectedFilters = Array.from(modal_filter.querySelectorAll('input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
   fetchFilteredAttractions(selectedFilters);
   modal_filter.style.display = 'none';
-}
+})
 
 
 
 // Сброс фильтров
-resetFiltersButton.onclick = function() {
+resetFiltersButton.addEventListener("click", () => {
   fetchFilteredAttractions([]);
   modal_filter.style.display = 'none';
-}
+})
 
 
 // Фильтрация контента
@@ -207,20 +207,20 @@ fetchFilteredAttractions([]);
 
 
 // Строка поиска (для красивой анимации)
-const icon = document.querySelector('.menu__icon');
-const search = document.querySelector('.menu__search');
+const icon = document.getElementById('search-icon');
+const search = document.getElementById('search-div');
 const seacrhInp = document.getElementById('mySearch')
-const clear = document.querySelector('.menu__clear');
+const clear = document.getElementById('search-clear');
 
-icon.onclick = function() {
+icon.addEventListener("click", function() {
     search.classList.toggle('active');
-};
+});
 
-clear.onclick = function() {
+clear.addEventListener("click", function() {
   seacrhInp.value = '';
   totalPages = data.length
   renderSlides(data);
-}
+});
 
 // Burger menu
 document.addEventListener("DOMContentLoaded", function() {
@@ -260,7 +260,7 @@ function showModal(attraction) {
       <p class="modal__desc-text">${attraction.description}</p>
 
       <div class=modal__location>
-        <img class="modal__loc-img" src="./img/img-loc.svg" width="35" height="35">
+        <img class="modal__loc-img" src="./img/img-loc.svg">
         <p class="modal__loc-text">${attraction.location}</p>
       </div>
     
@@ -274,21 +274,6 @@ function showModal(attraction) {
         ${attraction.map_iframe}
       </div>
   `;
-
-//  // Инициализация Яндекс.Карты
-//   ymaps.ready(() => {
-//     const map = new ymaps.Map('map', {
-//       center: [attraction.ltd, attraction.lng],
-//       zoom: 14
-//     });
-
-//     new ymaps.Placemark([attraction.ltd, attraction.lng], {
-//       balloonContent: attraction.name
-//     }, {
-//       preset: 'islands#icon',
-//       iconColor: '#0095b6'
-//     });
-//   });
 
   modal_place.style.display = 'block';
 
