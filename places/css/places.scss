@@ -468,8 +468,8 @@ input {
         padding-top: 66px;
         padding-bottom: 151px;
         @media(max-width: 426px) {
-            // padding-top: 70px;
-            // padding-bottom: 70px;
+            padding-top: 70px;
+            padding-bottom: 70px;
         }
         transform: translateY(50px);
         filter: blur(18px);
@@ -519,8 +519,8 @@ input {
         justify-content: space-between;
         @media (max-width: 426px) {
             position: relative;
-            bottom: 150px;
-            right: 150px;
+            bottom: 60px;
+            right: 125px;
         }
 
         @media (min-width: 1920px) {
