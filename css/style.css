@@ -739,7 +739,7 @@ ul {
 }
 @media (max-width: 426px) {
   .footer__point {
-    font-size: 11px;
+    font-size: 15px;
     flex-direction: column;
   }
 }
