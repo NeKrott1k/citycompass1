@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       attractionElement.querySelector('.first_screen__info-button').addEventListener('click', () => {
         showLoader();
         showModal(attraction);
-        setTimeout(hideLoader, 100);
+        setTimeout(hideLoader, 500);
       });
       attractionsContainer.appendChild(attractionElement)
 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       paginationElement.addEventListener('click', () => {
         showLoader();
         goToPage(index + 1);
-        setTimeout(hideLoader, 100)
+        setTimeout(hideLoader, 500);
       });
       paginationContainer.appendChild(paginationElement)
     });
@@ -97,31 +97,38 @@ document.addEventListener("DOMContentLoaded", () => {
   prevButton.addEventListener('click', () => {
     showLoader();
     goToPage(currentPage - 1);
-    setTimeout(hideLoader, 100);
+    setTimeout(hideLoader, 500);
   });
 
 
   nextButton.addEventListener('click', () => {
     showLoader();
     goToPage(currentPage + 1);
-    setTimeout(hideLoader, 100);
+    setTimeout(hideLoader, 500);
   });
 
 
   searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
-
       const filteredData = data.filter(item => item.name.toLowerCase().includes(searchTerm))
       totalPages = filteredData.length
       renderSlides(filteredData)
   });
+
+
+  document.querySelector('.first_screen__search-input').addEventListener('input', () => {
+    const searchTerm = document.querySelector('.first_screen__search-input').value.toLowerCase();
+    const filteredData = data.filter(item => item.name.toLowerCase().includes(searchTerm))
+    totalPages = filteredData.length
+    renderSlides(filteredData)
+});
 
   fetchData();
 
 
 
 
-  //  Фильтр
+//  Фильтр
 const filterButton = document.getElementById('filter-button');
 const modal_filter = document.getElementById('filter-modal');
 const closeModal = document.getElementById('close-modal');
@@ -144,30 +151,65 @@ function hideLoader() {
 
 // Функция для отображения модального окна
 filterButton.addEventListener('click', () => {
-    modal_filter.style.display = 'block';
+    modal_filter.classList.toggle('active');
     // loadFilters();
 });
 
 
+// Функция для отображения модального окна (for phones)
+document.querySelector('.first_screen__filter-button').addEventListener('click', () => {
+  document.querySelector('.first_screen__modal').classList.toggle('active');
+  // loadFilters();
+});
+
+
+
 // Функция для закрытия модального окна
 closeModal.addEventListener('click', () => {
-    modal_filter.style.display = 'none';
+    modal_filter.classList.toggle('active');
 });
- 
+
+
+// Функция для закрытия модального окна (for phones)
+document.querySelector('.first_screen__close').addEventListener('click', () => {
+  document.querySelector('.first_screen__modal').classList.toggle('active');
+});
+
+
 
 // Обнаружение клика за пределами модального окна
 window.addEventListener("click", (event) => {
-    if (event.target === modal_filter) {
-        modal_filter.style.display = 'none';
+    if (event.target === document.querySelector('.first_screen__modal')) {
+        document.querySelector('.first_screen__modal').classList.toggle('active');
     }
 });
-                            
+     
+
+// Обнаружение клика за пределами модального окна (for phones)
+window.addEventListener("click", (event) => {
+  if (event.target === modal_filter) {
+      modal_filter.classList.toggle('active');
+  }
+});
+
+
+
+
 
 // Применение фильтров
-applyFiltersButton.addEventListener('click', () => {
+applyFiltersButton.addEventListener('click', function() {
   const selectedFilters = Array.from(modal_filter.querySelectorAll('input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
   fetchFilteredAttractions(selectedFilters);
-  modal_filter.style.display = 'none';
+  modal_filter.classList.toggle('active');
+})
+
+
+
+// Применение фильтров (for phones)
+document.querySelector('.first_screen__filter-btn-apply').addEventListener('click', function() {
+  const selectedFilters = Array.from(document.querySelector('.first_screen__modal').querySelectorAll('input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
+  fetchFilteredAttractions(selectedFilters);
+  document.querySelector('.first_screen__modal').classList.toggle('active');
 })
 
 
@@ -175,8 +217,17 @@ applyFiltersButton.addEventListener('click', () => {
 // Сброс фильтров
 resetFiltersButton.addEventListener("click", () => {
   fetchFilteredAttractions([]);
-  modal_filter.style.display = 'none';
+  modal_filter.classList.toggle('active');
 })
+
+
+// Сброс фильтров (for phones)
+document.querySelector('.first_screen__filter-btn-reset').addEventListener("click", () => {
+  fetchFilteredAttractions([]);
+  document.querySelector('.first_screen__modal').classList.toggle('active');
+})
+
+
 
 
 // Фильтрация контента
@@ -202,8 +253,6 @@ function fetchFilteredAttractions(filters) {
 
 }
 fetchFilteredAttractions([]);
-});
-
 
 
 // Строка поиска (для красивой анимации)
@@ -212,31 +261,31 @@ const search = document.getElementById('search-div');
 const seacrhInp = document.getElementById('mySearch')
 const clear = document.getElementById('search-clear');
 
-icon.addEventListener("click", function() {
-    search.classList.toggle('active');
-});
-
-clear.addEventListener("click", function() {
-  seacrhInp.value = '';
-  totalPages = data.length
-  renderSlides(data);
-});
-
-// Burger menu
-document.addEventListener("DOMContentLoaded", function() {
-    const burger = document.getElementById('burger');
-    const menu = document.getElementById('menu');
-
-    burger.addEventListener('click', function() {
-        burger.classList.toggle('active');
-        menu.classList.toggle('active');
+    // отображение анимации поиска
+    icon.addEventListener('click', function() {
+        search.classList.toggle('active');
     });
+
+    // отображение анимации поиска (for phones)
+    document.querySelector('.first_screen__icon').addEventListener('click', function() {
+      document.querySelector('.first_screen__search').classList.toggle('active');
+    });
+
+    // очистка инпута 
+    clear.addEventListener('click', function() {
+      seacrhInp.value = '';
+      totalPages = data.length
+      renderSlides(data);
+    });
+
+    // очистка инпута (for phones)  
+    document.querySelector('.first_screen__clear').addEventListener('click', function() {
+      document.querySelector('.first_screen__search-input').value = '';
+      totalPages = data.length
+      renderSlides(data);
+    });
+
 });
-
-
-
-
-
 
 
 // Модальное окно достопримечательности
@@ -312,3 +361,14 @@ function checkQueryParams() {
   }
 }
 
+
+// Burger menu
+document.addEventListener("DOMContentLoaded", function() {
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+
+    burger.addEventListener('click', function() {
+        burger.classList.toggle('active');
+        menu.classList.toggle('active');
+    });
+});

@@ -28,32 +28,29 @@ a {
   box-sizing: border-box;
 }
 
-p {
-  font-family: "Neutral Face";
-  color: white;
-  font-weight: 400;
-  font-size: 18px;
-  text-transform: uppercase;
-}
-@media (max-width: 426px) {
-  p {
-    font-size: 10px;
-  }
-}
-
 body,
 html {
   scroll-behavior: smooth;
   background-color: #051F20;
 }
 
-ul {
-  list-style-type: none;
+p {
+  font-family: "Neutral Face";
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: uppercase;
+  max-width: 500px;
+}
+@media (max-width: 426px) {
+  p {
+    font-size: 10px;
+    max-width: 210px;
+  }
 }
 
-p {
-  max-width: 210px;
-  color: white;
+ul {
+  list-style-type: none;
 }
 
 input {
@@ -225,10 +222,11 @@ input {
 .menu__icon::after {
   position: absolute;
   content: "";
-  width: 3px;
+  width: 4px;
   height: 12px;
   transform: translate(8px, 8px) rotate(-45deg);
   background-color: #051F20;
+  border-radius: 2px;
 }
 .menu__input {
   position: relative;
@@ -308,6 +306,9 @@ input {
   height: auto;
   overflow: auto;
   top: 20px;
+}
+.menu__modal.active {
+  display: block;
 }
 .menu__modal-content {
   background-color: #31612c;
@@ -455,13 +456,12 @@ input {
 }
 .first_screen__search-and-filter {
   display: flex;
-  justify-content: space-between;
 }
 @media (max-width: 426px) {
   .first_screen__search-and-filter {
     position: relative;
     bottom: 60px;
-    right: 125px;
+    right: 57px;
   }
 }
 @media (min-width: 1920px) {
@@ -471,14 +471,16 @@ input {
 }
 .first_screen__search {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   background-color: #CBF2C6;
   border-radius: 70px;
   transition: 0.5s;
   border: none;
   overflow: hidden;
-  left: 30px;
+}
+.first_screen__search.active {
+  width: 200px;
 }
 .first_screen__search:hover {
   box-shadow: 0 4px 6px rgba(98, 146, 94, 0.7725490196);
@@ -499,12 +501,18 @@ input {
   cursor: pointer;
   border: none;
 }
+@media (max-width: 426px) {
+  .first_screen__icon {
+    width: 45px;
+    height: 45px;
+  }
+}
 .first_screen__icon::before {
   position: absolute;
   content: "";
-  width: 15px;
-  height: 15px;
-  border: 4px solid #051F20;
+  width: 13px;
+  height: 13px;
+  border: 3px solid #051F20;
   border-radius: 50%;
   transform: translate(-2px, -2px);
 }
@@ -512,9 +520,10 @@ input {
   position: absolute;
   content: "";
   width: 3px;
-  height: 12px;
+  height: 10px;
   transform: translate(8px, 8px) rotate(-45deg);
   background-color: #051F20;
+  border-radius: 2px;
 }
 .first_screen__input {
   position: relative;
@@ -526,18 +535,16 @@ input {
   justify-content: center;
   background-color: transparent;
 }
-.first_screen #mySearch {
+.first_screen__search-input {
   position: absolute;
-  top: 0;
+  top: 5px;
   left: 0;
-  width: 100%;
-  height: 100%;
   border: none;
   outline: none;
   font-family: "Neutral Face";
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 12px;
   color: #051F20;
   padding: 10px 0;
   background-color: transparent;
@@ -589,17 +596,18 @@ input {
   display: none;
   position: fixed;
   z-index: 1000;
-  left: 1325px;
-  top: 0;
-  width: 300px;
-  height: auto;
+  width: 200px;
+  height: 80%;
   overflow: auto;
-  top: 20px;
+  top: 210px;
+  right: 40px;
 }
-@media (max-width: 426px) {
-  .first_screen__modal {
-    left: 0;
-  }
+.first_screen__modal.active {
+  display: block;
+}
+.first_screen__modal-title {
+  font-size: 15px;
+  text-align: left;
 }
 .first_screen__modal-content {
   background-color: #31612c;
@@ -610,7 +618,6 @@ input {
   height: auto;
   font-family: "Neutral Face";
   font-weight: 400;
-  font-size: 16px;
   color: #fff;
   flex-direction: column;
   display: flex;
@@ -625,14 +632,17 @@ input {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  width: 20px;
 }
 .first_screen label {
   font-family: "Neutral Face";
   font-weight: 400;
-  font-size: 20px;
+  font-size: 10px;
   letter-spacing: 1px;
+  display: flex;
+  gap: 10px;
 }
-.first_screen__filter-btns {
+.first_screen__filter-btn-apply, .first_screen__filter-btn-reset {
   padding: 0 10px;
   font-family: "AC Line";
   font-weight: 400;
@@ -641,13 +651,15 @@ input {
   color: #fff;
   border-radius: 10px;
   height: 25px;
-  width: 90px;
+  width: 70px;
   letter-spacing: 1px;
+  font-size: 10px;
 }
 .first_screen__filter-buttons {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  justify-content: center;
 }
 .first_screen__slider {
   display: flex;
@@ -819,6 +831,11 @@ input {
   font-size: 32px;
   color: white;
   font-family: "AC Line";
+}
+@media (max-width: 426px) {
+  .first_screen__loader {
+    font-size: 25px;
+  }
 }
 .first_screen__loader.active {
   display: block;
