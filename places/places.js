@@ -142,7 +142,7 @@ function showLoader() {
   loader.classList.add("active")
 }
 
-// Прятать лоадер
+// Убрать лоадер
 function hideLoader() {
   loader.classList.remove("active")
 }
