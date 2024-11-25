@@ -108,13 +108,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  searchInput.addEventListener('input', () => {
-      const searchTerm = searchInput.value.toLowerCase();
-      const filteredData = data.filter(item => item.name.toLowerCase().includes(searchTerm))
-      totalPages = filteredData.length
-      renderSlides(filteredData)
-  });
-  fetchData();
+searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredData = data.filter(item => item.name.toLowerCase().includes(searchTerm))
+    totalPages = filteredData.length
+    renderSlides(filteredData)
+});
+
+
+document.querySelector('.first_screen__search-input').addEventListener('input', () => {
+  const searchTerm = document.querySelector('.first_screen__search-input').value.toLowerCase();
+  const filteredData = data.filter(item => item.name.toLowerCase().includes(searchTerm))
+  totalPages = filteredData.length
+  renderSlides(filteredData)
+});
+fetchData();
 
 
 

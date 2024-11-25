@@ -79,9 +79,11 @@ input {
     padding-left: 100px;
     padding-right: 100px;
     padding-top: 65px;
+    position: relative;
+    z-index: 1;
+    
 
     @media(max-width: 426px) {
-        top: -580px;
         margin: 0 auto;
         padding: 0;
     }
@@ -109,7 +111,6 @@ input {
         display: flex;
         justify-content: center;
         gap: 80px;
-
         @media (max-width: 426px) {
             position: absolute;
             top: 0;
@@ -223,7 +224,7 @@ input {
     opacity: 0;
     animation: ShowTitles 0.5s 1s linear forwards;
     position: relative;
-    top: 30px;
+    top: 90px;
 
 
     li {
@@ -245,6 +246,7 @@ input {
         flex-direction: row;
         gap: 120px;
         align-items: center;
+        display: none;
 
         @media (max-width: 426px) {
             position: absolute;
@@ -279,6 +281,7 @@ input {
         @media (max-width: 426px) {
             display: flex;
             margin-left: 80%;
+            top: -55px;
         }
 
     }
@@ -312,8 +315,8 @@ input {
 
     &__search-and-filter{
         display: flex;
-        justify-content: space-between;
-        gap: 200px;
+        justify-content: center;
+        // gap: 200px;
         @media (max-width: 426px) {
             position: absolute;
             top: 0;
@@ -387,7 +390,7 @@ input {
         background-color: transparent;
     }
 
-    #mySearch {
+    &__search-input {
         position: absolute;
         top: 0;
         left: 0;

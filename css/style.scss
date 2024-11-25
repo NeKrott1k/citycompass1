@@ -257,7 +257,8 @@ ul {
     filter: blur(18px);
     opacity: 0;
     animation: ShowTitles 0.5s 1s linear forwards;
-    width: fit-content;
+    position: relative;
+    bottom: 70px;
 
     li {
         a {
@@ -273,6 +274,34 @@ ul {
             transform: rotateY(0);
         }
     }
+    &__points {
+        display: flex;
+        flex-direction: row;
+        gap: 120px;
+        align-items: center;
+        display: none;
+        @media (max-width: 426px) {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            position: absolute;
+            top: 0;
+            left: -100%;
+        }
+    }
+
+    &__point {
+        font-family: 'AC Line';
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 24px;
+        color: white;
+
+    }
 
 
     &__burger-icon{
@@ -284,7 +313,7 @@ ul {
         @media (max-width: 426px) {
             display: flex;
             margin-left: 80%;
-            top: -55px;
+            top: 27px;
         }
 
     }
@@ -315,8 +344,6 @@ ul {
         transform: rotate(-45deg);
         transform-origin: 1px;
     }
-
-
 
 }
 
