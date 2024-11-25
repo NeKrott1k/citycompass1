@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Neutral Face";
   src: url(../fonts/NeutralFace-regular.woff2) format(woff2);
@@ -111,6 +112,96 @@ ul {
     top: -16px;
   }
 }
+.header__points {
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  max-height: 156px;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+}
+@media (max-width: 426px) {
+  .header__points {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .header__points {
+    position: absolute;
+    top: 0;
+    left: -100%;
+  }
+}
+.header a {
+  font-family: "AC Line";
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+  margin-right: 52px;
+  text-align: center;
+  padding: 7px 18px;
+  margin-right: 52px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.header a span {
+  position: absolute;
+  display: block;
+}
+.header a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff);
+}
+.header a:hover span:nth-child(1) {
+  left: 100%;
+  transition: 1s;
+}
+.header a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #fff);
+}
+.header a:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+.header a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #fff);
+}
+.header a:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+}
+.header a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #fff);
+}
+.header a:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+}
 
 .menu {
   justify-content: space-between;
@@ -124,6 +215,8 @@ ul {
   filter: blur(18px);
   opacity: 0;
   animation: ShowTitles 0.5s 1s linear forwards;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .menu li a {
   text-decoration: none;
@@ -135,34 +228,6 @@ ul {
     opacity: 1;
     transform: rotateY(0);
   }
-}
-.menu__points {
-  display: flex;
-  flex-direction: row;
-  gap: 120px;
-  align-items: center;
-}
-@media (max-width: 426px) {
-  .menu__points {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    display: none;
-  }
-}
-@media (max-width: 768px) {
-  .menu__points {
-    position: absolute;
-    top: 0;
-    left: -100%;
-  }
-}
-.menu__point {
-  font-family: "AC Line";
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: 24px;
-  color: white;
 }
 .menu__burger-icon {
   display: none;
@@ -282,6 +347,7 @@ ul {
   font-size: 16px;
   font-family: "Neutral Face";
   text-transform: uppercase;
+  margin-bottom: 100px;
 }
 @media (max-width: 426px) {
   .first-screen__text {
@@ -331,12 +397,85 @@ ul {
     transform: rotateY(0);
   }
 }
+.first-screen a {
+  position: relative;
+  padding: 20px 50px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 200px;
+  overflow: hidden;
+}
+.first-screen a span {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-family: "Neutral Face";
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 426px) {
+  .first-screen a span {
+    font-size: 10px;
+    right: 15px;
+  }
+}
+.first-screen__liquid {
+  position: absolute;
+  left: 0;
+  top: -80px;
+  width: 200px;
+  height: 200px;
+  background: #13670b;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+@media (max-width: 426px) {
+  .first-screen__liquid {
+    top: -66px;
+    width: 150px;
+    height: 150px;
+  }
+}
+a:hover .first-screen__liquid {
+  top: -120px;
+}
+.first-screen__liquid::before, .first-screen__liquid::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+.first-screen__liquid::before {
+  border-radius: 45%;
+  background: rgb(20, 20, 20);
+  animation: animate 5s linear infinite;
+}
+.first-screen__liquid::after {
+  border-radius: 40%;
+  background: rgba(20, 20, 20, 0.5);
+  animation: animate 10s linear infinite;
+}
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
 
 .second-screen {
   text-align: center;
   align-items: center;
   position: relative;
-  z-index: 2;
+  margin-top: 0;
+  top: -200px;
 }
 @media (max-width: 426px) {
   .second-screen {
@@ -351,10 +490,23 @@ ul {
   max-width: -moz-fit-content;
   max-width: fit-content;
   text-transform: uppercase;
-  width: 593px;
 }
 @media (max-width: 426px) {
   .second-screen__title {
+    font-size: 30px;
+  }
+}
+.second-screen__title1 {
+  font-size: 64px;
+  color: #67e75b;
+  font-family: "Rozovii Chulok";
+  font-weight: 400;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  text-transform: uppercase;
+}
+@media (max-width: 426px) {
+  .second-screen__title1 {
     font-size: 30px;
   }
 }
@@ -375,8 +527,6 @@ ul {
   align-items: center;
   display: flex;
   position: relative;
-  padding-bottom: 140px;
-  padding-top: 70px;
 }
 @media (max-width: 426px) {
   .second-screen__content {
@@ -388,14 +538,111 @@ ul {
   position: relative;
   max-width: 100%;
   overflow: hidden;
-  margin: 0 50px;
+  margin: 0 10px;
   top: -100px;
+}
+@media (max-width: 426px) {
+  .slider {
+    margin: 0 10px;
+  }
 }
 .slider__line {
   background-color: transparent;
   display: flex;
   align-items: center;
   transition: all 1s;
+}
+.slider__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Чтобы элементы по центру */
+}
+.slider__img {
+  opacity: 0.7;
+}
+@media (max-width: 426px) {
+  .slider__img {
+    opacity: 0.4;
+  }
+}
+.slider__text-container {
+  position: absolute; /* Используем absolute для позиционирования текста */
+  bottom: 450px; /* Регулируйте по желанию */
+  left: 700px; /* Центруем по горизонтали */
+  transform: translateX(-50%); /* Центрирование */
+  z-index: 2;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 426px) {
+  .slider__text-container {
+    bottom: 40px;
+    left: 50%;
+    gap: 5px;
+  }
+}
+.slider__text {
+  font-family: "Neutral Face";
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 30px;
+  width: 700px;
+  text-align: left;
+}
+@media (max-width: 426px) {
+  .slider__text {
+    font-size: 10px;
+    width: 300px;
+    letter-spacing: 1px;
+  }
+}
+.slider__count {
+  font-family: "Neutral Face";
+  font-weight: 900;
+  font-size: 68px;
+  color: white;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media (max-width: 426px) {
+  .slider__count {
+    font-size: 20px;
+  }
+}
+.slider__title1 {
+  font-family: "Rozovii Chulok";
+  font-weight: 900;
+  font-size: 60px;
+  color: white;
+  text-transform: uppercase;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  letter-spacing: 3px;
+}
+@media (max-width: 426px) {
+  .slider__title1 {
+    font-size: 18px;
+  }
+}
+.slider__title {
+  font-family: "Neutral Face";
+  font-weight: 900;
+  font-size: 60px;
+  color: white;
+  text-transform: uppercase;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  letter-spacing: 3px;
+}
+@media (max-width: 426px) {
+  .slider__title {
+    font-size: 18px;
+  }
 }
 .slider__btn-prev {
   position: absolute;
@@ -492,7 +739,6 @@ ul {
 .third-screen__title {
   font-size: 48px;
   color: #CBF2C6;
-  padding-top: 111px;
   font-family: "Neutral Face";
   font-weight: 900;
   text-transform: uppercase;
@@ -671,7 +917,7 @@ ul {
   width: -moz-fit-content;
   width: fit-content;
   margin-bottom: 64px;
-  margin-top: 70px;
+  margin-top: 140px;
   display: flex;
   text-align: center;
   align-items: center;
@@ -736,12 +982,30 @@ ul {
   font-size: 20px;
   color: white;
   display: flex;
+  position: relative;
+  padding-bottom: 20px;
 }
 @media (max-width: 426px) {
   .footer__point {
     font-size: 15px;
     flex-direction: column;
   }
+}
+.footer__point::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 15px;
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 1px;
+  background: #fff;
+  width: 0;
+  transition: 0.3s;
+}
+.footer__point:hover::after {
+  width: 100%;
 }
 .footer__icons {
   display: flex;
@@ -763,5 +1027,150 @@ ul {
   .footer__ds, .footer__vk, .footer__tg {
     width: 20px;
     height: 15px;
+  }
+}
+
+.calend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 90px;
+  margin-top: 140px;
+}
+.calend__title {
+  font-family: "Neutral Face";
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 48px;
+  color: #CBF2C6;
+}
+@media (max-width: 426px) {
+  .calend__title {
+    font-size: 24px;
+  }
+}
+.calend__btns {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+}
+.calend__button {
+  font-family: "AC Line";
+  font-size: 90px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  transition: 0.3s linear;
+}
+.calend__button:hover {
+  transform: translateY(-10px);
+}
+.calend__container {
+  display: inline-block;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  background-color: #051F20;
+  transition: 0.5s;
+  padding-left: 30px;
+}
+.calend__container:hover {
+  box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.7098039216);
+}
+.calend__month {
+  text-align: center;
+  color: white;
+  padding-top: 50px;
+  font-family: "Neutral Face";
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 25px;
+}
+@media (max-width: 426px) {
+  .calend__month {
+    font-size: 17px;
+    padding-top: 40px;
+  }
+}
+.calend__days-of-week {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calend__weekdays {
+  font-family: "AC Line";
+  font-weight: 400;
+  font-size: 40px;
+  color: white;
+  padding: 30px 55px;
+}
+@media (max-width: 426px) {
+  .calend__weekdays {
+    padding: 15px;
+    font-size: 20px;
+  }
+}
+.calend__weekend {
+  font-family: "AC Line";
+  font-weight: 400;
+  font-size: 40px;
+  color: #62925E;
+  padding: 30px 55px;
+}
+@media (max-width: 426px) {
+  .calend__weekend {
+    padding: 15px;
+    font-size: 20px;
+  }
+}
+.calend__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding-top: 30px;
+}
+.calend__day {
+  padding: 20px;
+  width: 150px;
+  height: 80px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  font-family: "AC Line";
+  font-weight: 400;
+  font-size: 40px;
+  color: white;
+}
+@media (max-width: 426px) {
+  .calend__day {
+    padding: 7px;
+    width: 50px;
+    font-size: 14px;
+    height: 40px;
+  }
+}
+.calend__day.enlarged {
+  transform: scale(1);
+  z-index: 10;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.event-details {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  text-align: center;
+  font-size: 16px;
+  display: none;
+}
+@media (max-width: 426px) {
+  .event-details {
+    font-size: 12px;
   }
 }
