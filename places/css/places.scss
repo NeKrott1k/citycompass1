@@ -46,6 +46,13 @@ html {
 }
 
 
+body,
+html {
+    scroll-behavior: smooth;
+    background-color: #051F20;
+}
+
+
 p {
     font-family: 'Neutral Face';
     color: white;
@@ -89,9 +96,6 @@ input {
     }
  
      &__logo {
-         margin-left: 64px;
-         margin-right: 64px;
-         justify-content: start;
  
         @media(max-width: 426px) {
            position: relative;

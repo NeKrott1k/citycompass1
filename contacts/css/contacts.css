@@ -68,11 +68,6 @@ body {
     padding: 0;
   }
 }
-.header__logo {
-  margin-left: 64px;
-  margin-right: 64px;
-  justify-content: start;
-}
 @media (max-width: 426px) {
   .header__logo {
     position: relative;

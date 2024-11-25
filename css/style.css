@@ -55,6 +55,8 @@ ul {
   align-items: center;
   justify-content: center;
   text-align: center;
+  opacity: 0.5;
+  opacity: 0.5;
 }
 @media (max-width: 426px) {
   #myVideo {
