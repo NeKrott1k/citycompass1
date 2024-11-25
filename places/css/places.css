@@ -64,12 +64,12 @@ input {
 .header {
   padding-left: 100px;
   padding-right: 100px;
-  padding-top: 100px;
-  padding-top: 100px;
+  padding-top: 65px;
+  position: relative;
+  z-index: 1;
 }
 @media (max-width: 426px) {
   .header {
-    top: -580px;
     margin: 0 auto;
     padding: 0;
   }
@@ -184,7 +184,7 @@ input {
   opacity: 0;
   animation: ShowTitles 0.5s 1s linear forwards;
   position: relative;
-  top: 30px;
+  top: 90px;
 }
 .menu li a {
   text-decoration: none;
@@ -202,6 +202,7 @@ input {
   flex-direction: row;
   gap: 120px;
   align-items: center;
+  display: none;
 }
 @media (max-width: 426px) {
   .menu__points {
@@ -236,6 +237,7 @@ input {
   .menu__burger-icon {
     display: flex;
     margin-left: 80%;
+    top: -55px;
   }
 }
 .menu__burger-line {
@@ -262,8 +264,7 @@ input {
 }
 .menu__search-and-filter {
   display: flex;
-  justify-content: space-between;
-  gap: 200px;
+  justify-content: center;
 }
 @media (max-width: 426px) {
   .menu__search-and-filter {
@@ -330,7 +331,7 @@ input {
   justify-content: center;
   background-color: transparent;
 }
-.menu #mySearch {
+.menu__search-input {
   position: absolute;
   top: 0;
   left: 0;

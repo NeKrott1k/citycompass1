@@ -13,6 +13,13 @@
 <body>
 <!-- header start -->
     <header class="header">
+        <div class="header__menu menu">
+            <div class="menu__burger-icon" id="burger">
+                <div class="menu__burger-line"></div>
+                <div class="menu__burger-line"></div>
+                <div class="menu__burger-line"></div>
+            </div>
+        </div>
         <div class="header__points">
             <img src="./img/logo.svg" alt="logo" class="menu__logo">
                 <a href="../index.html">
@@ -39,26 +46,13 @@
                     контакты
                 </a>
         </div>
-    <div class="header__menu menu">
-        <!-- <img src="./img/logo.svg" alt="logo" class="header__logo"> -->
-            <div class="menu__burger-icon" id="burger">
-                <div class="menu__burger-line"></div>
-                <div class="menu__burger-line"></div>
-                <div class="menu__burger-line"></div>
-            </div>
-            <ul class="menu__points">
-                <li><a href="../index.html" class="menu__point">Главная</a></li>
-                <li><a href="../places/places.html" class="menu__point">список интересных мест</a></li>
-                <li><a href="../contacts/contacts.html" class="menu__point">контакты</a></li>
-            </ul>
 
-        
         <div class="menu__search-and-filter">
             <!-- search start -->
             <div class="menu__search" id="search-div">
                 <div class="menu__icon" id="search-icon"></div>
                 <form class="menu__input">
-                    <input type="text" id="mySearch" placeholder="Поиск...">
+                    <input class="menu__search-input" type="text" id="mySearch" placeholder="Поиск...">
                 </form>
                 <span class="menu__clear" id="search-clear"></span>
             </div>
@@ -80,16 +74,15 @@
                 </div>
             </div>
         </div>
-    </div>
     </header>
 <!-- header end -->
 
 <!-- burger menu start -->
 <div class="menu-burger" id="menu">
     <ul class="menu-burger__points">
-        <li class="menu-burger__li"><a href="./places.html" class="menu-burger__point">список интересных мест</a></li>
-        <li class="menu-burger__li"><a href="../index.html" class="menu-burger__point">Главная</a></li>
-        <li class="menu-burger__li"><a href="../contacts/contacts.html" class="menu-burger__point">контакты</a></li>
+        <li class="menu-burger__li"><a href="./places/places.html" class="menu-burger__point">список интересных мест</a></li>
+        <li class="menu-burger__li"><a href="./index.html" class="menu-burger__point">Главная</a></li>
+        <li class="menu-burger__li"><a href="./contacts/contacts.html" class="menu-burger__point">контакты</a></li>
     </ul>
 </div>
 <!-- burger menu end -->

@@ -221,8 +221,8 @@ ul {
   filter: blur(18px);
   opacity: 0;
   animation: ShowTitles 0.5s 1s linear forwards;
-  width: -moz-fit-content;
-  width: fit-content;
+  position: relative;
+  bottom: 70px;
 }
 .menu li a {
   text-decoration: none;
@@ -235,6 +235,35 @@ ul {
     transform: rotateY(0);
   }
 }
+.menu__points {
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+  align-items: center;
+  display: none;
+}
+@media (max-width: 426px) {
+  .menu__points {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .menu__points {
+    position: absolute;
+    top: 0;
+    left: -100%;
+  }
+}
+.menu__point {
+  font-family: "AC Line";
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 24px;
+  color: white;
+}
 .menu__burger-icon {
   display: none;
   position: relative;
@@ -246,7 +275,7 @@ ul {
   .menu__burger-icon {
     display: flex;
     margin-left: 80%;
-    top: -55px;
+    top: 27px;
   }
 }
 .menu__burger-line {
