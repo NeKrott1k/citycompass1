@@ -30,13 +30,33 @@
                 <div class="menu__burger-line"></div>
                 <div class="menu__burger-line"></div>
             </div>
-            <ul class="menu__points">
-                <img src="./img/logo.svg" alt="logo" class="menu__logo">
-                <li><a href="./index.html" class="menu__point">Главная</a></li>
-                <li><a href="./places/places.html" class="menu__point">список интересных мест</a></li>
-                <li><a href="./contacts/contacts.html" class="menu__point">контакты</a></li>
-            </ul>
         </div>
+            <div class="header__points">
+                <img src="./img/logo.svg" alt="logo" class="menu__logo">
+                    <a href="./index.html">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Главная
+                    </a>
+
+                    <a href="./places/places.html">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        список интересных мест
+                    </a>
+
+                    <a href="./contacts/contacts.html">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        контакты
+                    </a>
+            </div>
     </header>
 <!-- header end -->
 
@@ -63,6 +83,11 @@
                 культуре
                 и истории каждого города. </p>
         </div>
+
+        <a href="./places/places.html">
+            <span>Подробнее</span>
+            <div class="first-screen__liquid"></div>
+        </a>
     </section>
     </div>
 <!-- first screen end -->
@@ -71,22 +96,57 @@
 <!-- second screen start -->
     <section class="second-screen">
         <div class="second-screen__content">
-            <h2 class="second-screen__title">железноводск</h2>
+            <h2 class="second-screen__title">Интересные факты</h2>
+            <h2 class="second-screen__title1">о Железноводске</h2>
         </div>
     </section>
 
     <div class="slider">
         <div class="slider__line">
-            <img src="./img/caption (3).png" alt="" class="slider__img">
-            <img src="./img/caption (4).png" alt="" class="slider__img">
-            <img src="./img/caption (5).png" alt="" class="slider__img">
-            <img src="./img/img-slider.png" alt="" class="slider__img">
-            <img src="./img/photo-2-screen.png" alt="" class="slider__img">
+    
+            <div class="slider__item">
+                <img src="./img/1-slide.png" alt="" class="slider__img">
+                <div class="slider__text-container">
+                    <h1 class="slider__count">1.</h1>
+                    <h2 class="slider__title">Исторические корни</h2>
+                        <p class="slider__text">Железноводск был основан в 1803 году как курортное место, благодаря своим целебным минеральным источникам. Город получил свое название от железистых вод, которые считались особенно полезными для здоровья.</p>
+                </div>
+            </div>
+    
+            <div class="slider__item">
+                <img src="./img/2-slide.png" alt="" class="slider__img">
+                <div class="slider__text-container">
+                    <h1 class="slider__count">2.</h1>
+                    <h2 class="slider__title">Курортная история</h2>
+                    <p class="slider__text">Железноводск известен своими бальнеологическими курортами, где люди приезжают лечить различные заболевания. Курорты города славятся своими минеральными источниками, которые содержат множество полезных минералов и микроэлементов.</p>
+                </div>
+            </div>
+    
+            <div class="slider__item">
+                <img src="./img/3-slide.png" alt="" class="slider__img">
+                <div class="slider__text-container">
+                    <h1 class="slider__count">3.</h1>
+                    <h2 class="slider__title">Архитектурное наследие</h2>
+                    <p class="slider__text">Железноводск имеет множество исторических зданий, включая санатории и парковую инфраструктуру, построенные в конце 19 – начале 20 века. Эти постройки имеют уникальную архитектуру и добавляют города атмосферу старинного курорта.</p>
+                </div>
+            </div>
+    
+            <div class="slider__item">
+                <img src="./img/4-slide.png" alt="" class="slider__img">
+                <div class="slider__text-container">
+                    <h2 class="slider__title1">Факт о М. Ю. Лермонтове</h2>
+                    <h1 class="slider__count">4.</h1>
+                    <h2 class="slider__title">Связь с Кавказским краем</h2>
+                    <p class="slider__text">Михаил Юрьевич Лермонтов провел большую часть своей жизни на Кавказе, где написал многие свои известные произведения, такие как "Герой нашего времени" и "Демон".</p>
+                </div>
+            </div>
+    
         </div>
-
+    
         <button class="slider__btn-prev"><</button>
         <button class="slider__btn-next">></button>
     </div>
+    
 <!-- second screen end -->
 
 
@@ -94,14 +154,6 @@
 <!-- third screen start -->
     <section class="third-screen">
         <h2 class="third-screen__title">Немного о городе</h2>
-        <div class="third-screen__container-mint">
-            <img src="./img/mint-table right.png" alt="leaves" class="third-screen__mint">
-        </div>
-
-        <div class="third-screen__container-mint1">
-            <img src="./img/mint-table left.png" alt="leaves" class="third-screen__mint1">
-        </div>
-
         <div class="third-screen__content">
             <div class="third-screen__rectangle" id="rectangle">
                 <p class="third-screen__text-top-bottom">Железноводск — это уютный город-курорт, расположенный у
@@ -129,6 +181,23 @@
         </div>
     </section>
 <!-- third screen end -->
+ <div class="calend">
+    <h2 class="calend__title">Календарь событий</h2>
+        <div class="calend__container">
+            <div class="calend__month" id="monthLabel"></div>
+            <div class="calend__days-of-week">
+                <p class="calend__weekdays">ПН</p>
+                <p class="calend__weekdays">ВТ</p>
+                <p class="calend__weekdays">СР</p>
+                <p class="calend__weekdays">ЧТ</p>
+                <p class="calend__weekdays">ПТ</p>
+                <p class="calend__weekend">СБ</p>
+                <p class="calend__weekend">ВС</p>
+            </div>
+            <div class="calend__days" id="daysContainer"></div>
+            <div class="calend__btns"></div>
+        </div>
+</div>
 
 
 <!-- third screen start -->
@@ -159,5 +228,4 @@
 <!-- footer end -->
 
 </body>
-
 </html>
