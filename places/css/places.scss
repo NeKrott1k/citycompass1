@@ -43,15 +43,10 @@ body,
 html {
     scroll-behavior: smooth;
     background-color: #051F20;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
-
-body,
-html {
-    scroll-behavior: smooth;
-    background-color: #051F20;
-}
-
 
 p {
     font-family: 'Neutral Face';
@@ -584,6 +579,7 @@ input {
     text-align: center;
     align-items: center;
     display: flex;
+    min-height: 75vh;
 
 
     &__titles {
@@ -1033,7 +1029,7 @@ input {
     }
 
 
-     &__pagin {
+    &__pagin {
         display: flex;
         gap: 10px;
     }
@@ -1115,7 +1111,7 @@ input {
         z-index: 0;
         right: 0;
         // left: 0;
-        top: 800px;
+        top: 313px;
         @media(max-width: 426px) {
             display: none;
         }

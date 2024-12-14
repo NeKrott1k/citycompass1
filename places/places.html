@@ -7,7 +7,6 @@
     <link rel="icon" href="./img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/places.css">
     <script src="./places.js" defer></script>
-    <!-- <script src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU" defer></script> -->
 </head>
 
 <body>
@@ -57,21 +56,25 @@
                 <span class="menu__clear" id="search-clear"></span>
             </div>
             <!-- search end -->
-            <button class="menu__filter-button" id="filter-button"><img src="./img/Vector.svg" alt="" class="header__filter-img"></button>
 
-            <div id="filter-modal" class="menu__modal">
-                <div class="menu__modal-content">
-                    <span id="close-modal" class="menu__close">&times;</span>
-                    <h2>Выберите фильтры</h2>
-                        <label><input type="checkbox" value="Санатории"> Санатории</label>
-                        <label><input type="checkbox" value="Арт-объекты"> Арт-объекты</label>
-                        <label><input type="checkbox" value="Галлереи"> Галлереи</label>
-                        <label><input type="checkbox" value="Скульптуры"> Скульптуры</label>
-                    <div class="menu__filter-buttons">
-                        <button id="apply-filters" class="menu__filter-btns">Применить</button>
-                        <button id="reset-filters" class="menu__filter-btns">Сбросить</button>
-                    </div>
+
+            <!-- <button class="menu__filter-button" id="filter-button"><img src="./img/Vector.svg" alt="" class="header__filter-img"></button> -->
+            <div class="menu__search-filter-container">
+                <div class="menu__filters">
+                    <label>
+                        Category:
+                        <select id="menu__category-filter">
+                            <option value="">All</option>
+                            <option value="Санатории">Санатории</option>
+                            <option value="Арт-объекты">Арт-объекты</option>
+                            <option value="Скульптуры">Скульптуры</option>
+                            <option value="Галлереи">Галлереи</option>
+                            <!-- Add more categories as needed -->
+                        </select>
+                    </label>
                 </div>
+
+                <button type="submit" class="menu__category-sort" id="category-sort">По алфавиту</button>
             </div>
         </div>
     </header>
@@ -106,38 +109,46 @@
                 <span class="first_screen__clear" id="search-clear"></span>
             </div>
             <!-- search end -->
-            <button class="first_screen__filter-button" id="filter-button"><img src="./img/Vector.svg" alt="" class="header__filter-img"></button>
 
-            <div id="filter-modal" class="first_screen__modal">
-                <div class="first_screen__modal-content">
-                    <span id="close-modal" class="first_screen__close">&times;</span>
-                    <h2 class="first_screen__modal-title">Выберите фильтры</h2>
-                        <label><input type="checkbox" value="Санатории"> Санатории</label>
-                        <label><input type="checkbox" value="Арт-объекты"> Арт-объекты</label>
-                        <label><input type="checkbox" value="Галлереи"> Галлереи</label>
-                        <label><input type="checkbox" value="Скульптуры"> Скульптуры</label>
-                    <div class="first_screen__filter-buttons">
-                        <button id="apply-filters" class="first_screen__filter-btn-apply">Применить</button>
-                        <button id="reset-filters" class="first_screen__filter-btn-reset">Сбросить</button>
-                    </div>
+            <div class="first_screen__search-filter-container">
+                <div class="first_screen__filters">
+                    <label>
+                        Category:
+                        <select id="category-filter">
+                            <option value="">All</option>
+                            <option value="Санатории">Санатории</option>
+                            <option value="Арт-объекты">Арт-объекты</option>
+                            <option value="Скульптуры">Скульптуры</option>
+                            <option value="Галлереи">Галлереи</option>
+                            <!-- Add more categories as needed -->
+                        </select>
+                    </label>
                 </div>
+
+                <button type="submit" class="first_screen__category-sort" id="category-sort">По алфавиту</button>
             </div>
         </div>
 
-            <div id="attractions" class="first_screen__slider">
+        <div id="cards-container"></div>
+        <button id="show-more">Show more</button>
+        <div class="pagination">
+            <button id="prev-page">Previous</button>
+             <div class="first_screen__dot"></div>
+            <button id="next-page">Next</button>
+        </div>
+        <span id="current-page">1</span>
 
-            </div>
-            <div class="first_screen__slider-controls">
-                <button class="first_screen__prev-btn" id="prev">←</button>
 
-                <div class="first_screen__pagination" id="pagination">
-
-                </div>
-                
-                <button class="first_screen__next-btn" id="next">→</button>
-            </div>
-
-        <div id="loader" class="first_screen__loader">Загрузка...</div>
+        <div id="loader" class="first_screen__loader">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
         <div class="first_screen__container-plant">
             <img src="./img/plant.png" alt="" class="first_screen__plant">
         </div>
@@ -145,7 +156,7 @@
 <!-- first screen end -->
 
 <!-- footer start -->
-    <secion class="footer">
+    <section class="footer">
         <div class="footer__content">
             <div class="footer__points">
                 <a href="../index.html" class="footer__point">Главная</a>
@@ -158,19 +169,40 @@
             <img src=".//img/vk logo.svg" alt="vk" class="footer__vk">
             <img src="./img/ds.svg" alt="ds" class="footer__ds">
         </div>
-    </secion>
+    </section>
 <!-- footer end -->
 
 
 
 
 <!-- modal place start -->
-    <section id="modal" class="modal">
-        <div class="modal__content">
-            <span class="modal__close">&times;</span>
-            <div id="modal-details"></div>
-        </div>
-    </section>
+<div id="modal" class="modal" >
+    <div class="modal__content">
+        <span class="modal__close">&times;</span>
+        <div id="modal-details"></div>
+
+        <form class="modal__reviews">
+            <label class="modal__reviews-title">Оставьте отзыв</label>
+            <input type="text" name="name" placeholder="ФИО" required>
+            <input type="email" name="email" placeholder="Эл. почта" required>
+            <textarea id="review-text" name="review-text" rows="4" required placeholder="Описание"></textarea>
+
+            <label class="modal__reviews-text">Оценка (5-ти балльная шкала)</label>
+            
+            <div class="modal__reviews-stars">
+                <span class="modal__reviews-star" data-value="1">★</span>
+                <span class="modal__reviews-star" data-value="2">★</span>
+                <span class="modal__reviews-star" data-value="3">★</span>
+                <span class="modal__reviews-star" data-value="4">★</span>
+                <span class="modal__reviews-star" data-value="5">★</span>
+            </div>
+
+            <input type="hidden" name="attraction-id" id="attraction-id" value="1">
+            <button class="modal__reviews-send" type="submit">Отправить отзыв</button>
+        </form>
+        <div id="reviews-container" class="modal__reviews-container"></div>
+    </div>  
+</div>
 <!-- modal place end -->
 
 

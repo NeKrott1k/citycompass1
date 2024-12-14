@@ -96,6 +96,7 @@ let currentDate = new Date();
 const monthLabel = document.getElementById('monthLabel');
 const daysContainer = document.getElementById('daysContainer');
 const bubble = document.getElementById('bubble');
+console.log(new Date());
 
 function renderCalendar() {
     daysContainer.innerHTML = '';

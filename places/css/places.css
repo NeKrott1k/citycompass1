@@ -32,12 +32,9 @@ body,
 html {
   scroll-behavior: smooth;
   background-color: #051F20;
-}
-
-body,
-html {
-  scroll-behavior: smooth;
-  background-color: #051F20;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 p {
@@ -504,6 +501,7 @@ input {
   text-align: center;
   align-items: center;
   display: flex;
+  min-height: 75vh;
 }
 .first_screen__titles {
   padding-top: 66px;
@@ -969,7 +967,7 @@ input {
   position: absolute;
   z-index: 0;
   right: 0;
-  top: 800px;
+  top: 313px;
 }
 @media (max-width: 426px) {
   .first_screen__container-plant {
