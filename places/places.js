@@ -471,6 +471,15 @@ const clear = document.getElementById('search-clear');
     // отображение анимации поиска
     icon.addEventListener('click', () => {
         search.classList.toggle('active');
+        seacrhInp.value = ''
+        Data_loader.load_data(current_page).then(data => {
+          Data_loader.show_loader()
+          setTimeout(() => {
+            display_cards(data)
+          }, 800);
+          update_pagination(current_page)
+          Data_loader.hide_loader()
+        })
     });
 
     // очистка инпута 
