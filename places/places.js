@@ -489,17 +489,13 @@ const clear = document.getElementById('search-clear');
 
 
 })
-})
-
 
 // Burger menu
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
 
-document.addEventListener("DOMContentLoaded", function() {
-  const burger = document.getElementById('burger');
-  const menu = document.getElementById('menu');
-
-  burger.addEventListener('click', function() {
-      burger.classList.toggle('active');
-      menu.classList.toggle('active');
-  });
-});
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active')
+    menu.classList.toggle('active')
+})
+})
