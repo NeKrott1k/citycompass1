@@ -1269,6 +1269,7 @@ input {
 
 
     &__ds, &__vk, &__tg {
+        cursor: pointer;
         @media(max-width: 426px) {
             width: 20px;
             height: 15px;

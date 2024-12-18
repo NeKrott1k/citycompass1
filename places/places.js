@@ -243,7 +243,6 @@ modal_close.addEventListener('click', () => {
   const url = new URL(window.location.origin + '/places/places.html')
   window.history.pushState({}, '', url)
 
-  // localStorage.removeItem('attraction_id')
 })
 
 // Галлерея

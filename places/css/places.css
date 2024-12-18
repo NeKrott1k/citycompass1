@@ -1108,6 +1108,9 @@ input {
   flex-direction: row;
   display: flex;
 }
+.footer__ds, .footer__vk, .footer__tg {
+  cursor: pointer;
+}
 @media (max-width: 426px) {
   .footer__ds, .footer__vk, .footer__tg {
     width: 20px;
