@@ -438,7 +438,6 @@ ul {
   display: block;
   text-decoration: none;
   text-transform: uppercase;
-  width: 200px;
   overflow: hidden;
 }
 @media (max-width: 426px) {
