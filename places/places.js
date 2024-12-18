@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let current_page = 1
   let items_per_page = 8
   const base_url = 'https://67319f907aaf2a9aff113edb.mockapi.io/attraction'
-  let is_pagination_used = false
+  let is_pagination_used = false // Значение указывает, будет ли очищаться контейнер с карточками, (if false => контейнер не очищается)
 
 
 // Забирает данные с mockapi
@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
       loader.classList.add('active')
     }
  }
+
+
 
  const Data_loader = new data_loader(base_url, items_per_page, sort_by = '')
  Data_loader.load_data(current_page).then(data => {
@@ -107,6 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
   prev_page_button.disabled = current_page === 1
  }
 
+
+ // Кнопка показать больше
  show_more_btn.addEventListener('click', () => {
   current_page++
   is_pagination_used = false
@@ -122,6 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
   })
  })
 
+
+ // Кнопка вперед
  next_page_button.addEventListener('click', () => {
     current_page++
     is_pagination_used = true
@@ -135,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
  })
  
-
+// Кнопка назад
  prev_page_button.addEventListener('click', () => {
   if (current_page > 1) {
     current_page--
@@ -150,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
  })
 
+ // Фильтрация по категориям
  category_filter.addEventListener('change', () => {
   current_page = 1
   is_pagination_used = true
@@ -162,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
  })
 
 
- 
+ // Поиск по названию
  search_input.addEventListener('change', () => {
   current_page = 1
   is_pagination_used = true
@@ -174,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }) 
  })
 
- 
+ // Сортировка по алфавиту
  category_sort.addEventListener('click', () => {
   current_page = 1
   is_pagination_used = true
@@ -187,12 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }) 
  })
 
- // Модал(Очка)
+ // Страница достопримечательности
  const modal = document.getElementById('modal')
  const modal_close = document.querySelector('.modal__close')
  const modal_details = document.getElementById('modal-details')
 
-
+// Забирает данные с mockapi для страницы
 async function fetch_attractions_modal(id) {
   const response = await fetch(`https://67319f907aaf2a9aff113edb.mockapi.io/attraction/${id}`)
   const data = await response.json()
@@ -224,13 +231,15 @@ function show_modal(id) {
     modal.classList.add('active') 
     localStorage.setItem('attraction_id', id)
   })
-
+  // Задается id для открытия страницы
   const url = new URL(window.location.origin + `/places/places.html/attraction/${id}`)
   window.history.pushState({}, document.title, url)
 }
 
+
+// Удаляется id при закрытии страницы
 modal_close.addEventListener('click', () => {
-  modal.style.display = 'none'
+  modal.classList.remove('active')
   const url = new URL(window.location.origin + '/places/places.html')
   window.history.pushState({}, '', url)
 
@@ -245,22 +254,23 @@ const gallery_next = document.getElementById('gallery-next')
 const gallery_close = document.getElementById('gallery-close')
 let current_index_img = 0
 let images = []
-console.log(gallery_close);
+
 
 function open_gallery(image_urls) {
   images = image_urls
   current_index_img = 0
   gallery_imgs.src = images[current_index_img]
   gallery.classList.add('active')
+  document.body.style.overflow = 'hidden'
 }
 
-gallery_close.addEventListener('click', () => {
-  gallery.classList.remove('active')
-})
 
+
+// События по клику на клавиши
 document.addEventListener('keydown', (event) => {
   if (event.code === 'Escape') {
-    gallery.classList.remove('active') 
+    gallery.classList.remove('active')
+    document.body.style.overflow = 'scroll'
   }
 
   if (event.code === 'ArrowLeft') {
@@ -275,21 +285,32 @@ document.addEventListener('keydown', (event) => {
   
 })
 
+// Те же события, но на кнопки на сайте
+gallery_close.addEventListener('click', () => {
+  gallery.classList.remove('active')
+  document.body.style.overflow = 'scroll'
+})
+
 
 gallery_next.addEventListener('click', () => {
   current_index_img = (current_index_img + 1) % images.length
   gallery_imgs.src = images[current_index_img]
 })
 
+
 gallery_prev.addEventListener('click', () => {
   current_index_img = (current_index_img - 1 + images.length) % images.length
   gallery_imgs.src = images[current_index_img]
 })
 
+
+
+
+// рендер картинок при клике
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('modal__place-img') || event.target.classList.contains('modal__place-img1')) {
-    const attraction_id = localStorage.getItem('attraction_id')
-    fetch_attractions_modal(attraction_id).then(attraction => {
+    const attraction_id = localStorage.getItem('attraction_id') // берет значение с localstorage, которое задается при открытии страницы
+    fetch_attractions_modal(attraction_id).then(attraction => { //
       const image_urls = [
         attraction.image_for_page1,
         attraction.image_for_page2,
@@ -308,6 +329,7 @@ const stars = document.querySelectorAll('.modal__reviews-star')
 const review_form = document.querySelector('.modal__reviews')
 let selected_rating = 0
 
+// Звезды рейтинга
 stars.forEach(star => {
   star.addEventListener('click', () => {
     selected_rating = parseInt(star.getAttribute('data-value'), 10)
@@ -323,15 +345,19 @@ stars.forEach(star => {
 })
 
 
-
+// Событие при отправке отзыва
 review_form.addEventListener('submit', async (event) => {
   event.preventDefault()
 
+
+  // берутся значения с инпутов
   const review_text = document.getElementById('review-text').value.trim()
   const user = document.getElementById('user-input').value.trim()
   const email = document.getElementById('email-input').value.trim()
   const attraction_id = localStorage.getItem('attraction_id')
 
+
+  // Конструктор переменных
   const review_data = {
     attraction_id: attraction_id,
     user: user,
@@ -339,6 +365,8 @@ review_form.addEventListener('submit', async (event) => {
     rating: Number(selected_rating), 
     text: review_text
   }
+
+  // Если оценка не задана, отзыв не отправится (оценка не может быть 0)
   if (selected_rating === 0) {
     alert('Выбери рейтинг')
     return 
@@ -347,8 +375,14 @@ review_form.addEventListener('submit', async (event) => {
     const response = axios.post('https://67319f907aaf2a9aff113edb.mockapi.io/reviews', review_data)
 
     alert('Спасибо за отзыв!')
+
+    // Оцищает форму после отправки отзыва
     review_form.reset()
+
+    // Обновляются классы звезд
     stars.forEach(s => s.classList.remove('selected'))
+
+    // Обнуление рейтинга
     selected_rating = 0
     display_reviews(attraction_id)
   } catch(error) {
@@ -370,6 +404,7 @@ review_form.addEventListener('submit', async (event) => {
 
 // } 
 
+// Рендер отзывов
 function display_reviews(attraction_id) {
   const reviews_container = document.getElementById('reviews-container')
   reviews_container.innerHTML = ''
@@ -392,6 +427,8 @@ function display_reviews(attraction_id) {
       }
     })
 }
+
+// Удаление отзывов
 async function delete_reviews(review_id) {
   try {
     const response = await axios.delete(`https://67319f907aaf2a9aff113edb.mockapi.io/reviews/${review_id}`)
@@ -406,6 +443,7 @@ async function delete_reviews(review_id) {
 
 }
 
+// Событие удаления по клику
 document.addEventListener('click', async (event) => {
   if (event.target.classList.contains('modal__delete-review')) {
     const review_id = event.target.getAttribute('data-id')
@@ -414,7 +452,7 @@ document.addEventListener('click', async (event) => {
     display_reviews(attraction_id)
   }
 
-
+// Рендер отзывов после удаления
 document.addEventListener('DOMContentLoaded', () => {
   const attraction_id = localStorage.getItem('attraction_id')
   if (attraction_id) {
