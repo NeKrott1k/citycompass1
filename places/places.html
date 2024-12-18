@@ -7,6 +7,7 @@
     <link rel="icon" href="./img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/places.css">
     <script src="./places.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
 </head>
 
 <body>
@@ -46,46 +47,16 @@
                 </a>
         </div>
 
-        <div class="menu__search-and-filter">
-            <!-- search start -->
-            <div class="menu__search" id="search-div">
-                <div class="menu__icon" id="search-icon"></div>
-                <form class="menu__input">
-                    <input class="menu__search-input" type="text" id="mySearch" placeholder="Поиск...">
-                </form>
-                <span class="menu__clear" id="search-clear"></span>
-            </div>
-            <!-- search end -->
 
-
-            <!-- <button class="menu__filter-button" id="filter-button"><img src="./img/Vector.svg" alt="" class="header__filter-img"></button> -->
-            <div class="menu__search-filter-container">
-                <div class="menu__filters">
-                    <label>
-                        Category:
-                        <select id="menu__category-filter">
-                            <option value="">All</option>
-                            <option value="Санатории">Санатории</option>
-                            <option value="Арт-объекты">Арт-объекты</option>
-                            <option value="Скульптуры">Скульптуры</option>
-                            <option value="Галлереи">Галлереи</option>
-                            <!-- Add more categories as needed -->
-                        </select>
-                    </label>
-                </div>
-
-                <button type="submit" class="menu__category-sort" id="category-sort">По алфавиту</button>
-            </div>
-        </div>
     </header>
 <!-- header end -->
 
 <!-- burger menu start -->
 <div class="menu-burger" id="menu">
     <ul class="menu-burger__points">
-        <li class="menu-burger__li"><a href="./places.html" class="menu-burger__point">список интересных мест</a></li>
-        <li class="menu-burger__li"><a href="../index.html" class="menu-burger__point">Главная</a></li>
-        <li class="menu-burger__li"><a href="../contacts/contacts.html" class="menu-burger__point">контакты</a></li>
+        <p class="menu-burger__li"><a href="./places.html" class="menu-burger__point">список интересных мест</a></p>
+        <p class="menu-burger__li"><a href="../index.html" class="menu-burger__point">Главная</a></li>
+        <p class="menu-burger__li"><a href="../contacts/contacts.html" class="menu-burger__point">контакты</a></p>
     </ul>
 </div>
 <!-- burger menu end -->
@@ -98,7 +69,6 @@
             <h2 class="first_screen__title2">(интересные места)</h2>
         </div>
 
-
         <div class="first_screen__search-and-filter">
             <!-- search start -->
             <div class="first_screen__search" id="search-div">
@@ -110,12 +80,12 @@
             </div>
             <!-- search end -->
 
-            <div class="first_screen__search-filter-container">
-                <div class="first_screen__filters">
+            <div class="first_screen__filter-container">
+                <div class="first_screen__filter">
                     <label>
-                        Category:
-                        <select id="category-filter">
-                            <option value="">All</option>
+                        <p>Фильтр по категориям</p>
+                        <select id="category-filter" class="first_screen__category-filter">
+                            <option value="">Все</option>
                             <option value="Санатории">Санатории</option>
                             <option value="Арт-объекты">Арт-объекты</option>
                             <option value="Скульптуры">Скульптуры</option>
@@ -125,33 +95,36 @@
                     </label>
                 </div>
 
-                <button type="submit" class="first_screen__category-sort" id="category-sort">По алфавиту</button>
+            </div>
+            <button type="submit" class="first_screen__category-sort" id="category-sort">По алфавиту</button>
+        </div>
+
+        <div id="loader" class="first_screen__loader">
+            <ul id="loader__ul">
+                <li id="loader__li"></li>
+                <li id="loader__li"></li>
+                <li id="loader__li"></li>
+                <li id="loader__li"></li>
+                <li id="loader__li"></li>
+                <li id="loader__li"></li>
+            </ul>
+        </div>
+        <div id="cards-container"></div>
+        <div class="first_screen__paginations">
+            <button id="show-more">Показать больше</button>
+            <div class="first_screen__pagination">
+                <button id="prev-page">←</button>
+                <!-- <div class="first_screen__dot"></div> -->
+                <span id="current-page">1</span>
+                <button id="next-page">→</button>
             </div>
         </div>
 
-        <div id="cards-container"></div>
-        <button id="show-more">Show more</button>
-        <div class="pagination">
-            <button id="prev-page">Previous</button>
-             <div class="first_screen__dot"></div>
-            <button id="next-page">Next</button>
-        </div>
-        <span id="current-page">1</span>
 
 
-        <div id="loader" class="first_screen__loader">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="first_screen__container-plant">
+        <!-- <div class="first_screen__container-plant">
             <img src="./img/plant.png" alt="" class="first_screen__plant">
-        </div>
+        </div> -->
     </section>
 <!-- first screen end -->
 
@@ -183,11 +156,10 @@
 
         <form class="modal__reviews">
             <label class="modal__reviews-title">Оставьте отзыв</label>
-            <input type="text" name="name" placeholder="ФИО" required>
-            <input type="email" name="email" placeholder="Эл. почта" required>
+            <input id="user-input" type="text" name="user" placeholder="ФИО" required>
+            <input id="email-input" type="email" name="email" placeholder="Эл. почта" required>
             <textarea id="review-text" name="review-text" rows="4" required placeholder="Описание"></textarea>
-
-            <label class="modal__reviews-text">Оценка (5-ти балльная шкала)</label>
+            <label for="review-text" class="modal__reviews-text">Оценка (5-ти балльная шкала)</label>
             
             <div class="modal__reviews-stars">
                 <span class="modal__reviews-star" data-value="1">★</span>
@@ -197,13 +169,23 @@
                 <span class="modal__reviews-star" data-value="5">★</span>
             </div>
 
-            <input type="hidden" name="attraction-id" id="attraction-id" value="1">
             <button class="modal__reviews-send" type="submit">Отправить отзыв</button>
         </form>
-        <div id="reviews-container" class="modal__reviews-container"></div>
+        <div id="reviews-container" class="modal__reviews-container">qwertyu</div>
     </div>  
 </div>
 <!-- modal place end -->
+
+<div id="gallery-modal" class="gallery-modal">
+    <div id="gallery-next" class="gallery-modal__next">&#10095;</div>
+    <div id="gallery-prev" class="gallery-modal__prev">&#10094;</div>
+    <span id="gallery-close" class="gallery-modal__close">&times;</span>
+    <div class="gallery-modal__content">
+        <div class="gallery-modal__images">
+            <img id="image-gallery" class="gallery-modal__image" src="" alt="">
+        </div>
+    </div>
+</div>
 
 
 </body>

@@ -534,10 +534,12 @@ body {
             width: 170px;
             padding: 17px 30px;
         }
+
+        &:hover {
+            box-shadow: 0px 0px 45.4px rgba(153, 191, 141, 0.5);
+        }
     }
-    &__btn:hover {
-       box-shadow: 0px 0px 45.4px rgba(153, 191, 141, 0.5);
-    }
+
 
     &__button {
         position: relative;
