@@ -438,8 +438,13 @@ ul {
   display: block;
   text-decoration: none;
   text-transform: uppercase;
-  width: 150px;
+  width: 200px;
   overflow: hidden;
+}
+@media (max-width: 426px) {
+  .first-screen a {
+    width: 150px;
+  }
 }
 .first-screen a span {
   position: relative;

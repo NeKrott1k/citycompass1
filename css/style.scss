@@ -499,8 +499,12 @@ ul {
         padding: 20px 50px;
         display: block;text-decoration: none;
         text-transform: uppercase;
-        width: 150px;
+        width: 200px;
         overflow: hidden;
+
+        @media (max-width:426px) {
+            width: 150px;
+        }
     }
 
     a span {
