@@ -945,6 +945,7 @@ input {
   font-family: "Neutral Face";
   font-size: 15px;
   color: white;
+  text-transform: uppercase;
 }
 .modal__reviews-stars {
   display: flex;
