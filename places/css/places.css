@@ -494,6 +494,7 @@ input {
   border-radius: 10px;
   font-family: "Neutral Face";
   color: white;
+  text-transform: uppercase;
 }
 .first_screen__search {
   position: relative;
@@ -629,6 +630,7 @@ input {
   font-size: 15px;
   transition: all 0.4s linear;
   cursor: pointer;
+  text-transform: uppercase;
 }
 .first_screen__category-sort.active, .first_screen__category-sort:hover {
   box-shadow: 0px 0px 45.4px #178c90;
@@ -761,6 +763,7 @@ input {
 .first_screen__card-title {
   font-family: "Neutral Face";
   color: white;
+  text-transform: uppercase;
 }
 .first_screen__info-button {
   display: flex;
@@ -807,6 +810,7 @@ input {
   border: none;
   color: white;
   transition: 0.4s linear;
+  text-transform: uppercase;
 }
 #show-more:hover {
   box-shadow: 0px 0px 45.4px #97BF8D;

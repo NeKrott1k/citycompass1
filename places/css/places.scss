@@ -561,6 +561,7 @@ input {
         border-radius: 10px;
         font-family: 'Neutral Face';
         color: white;
+        text-transform: uppercase;
     }
 
     
@@ -724,6 +725,7 @@ input {
         font-size: 15px;
         transition: all 0.4s linear;
         cursor: pointer;
+        text-transform: uppercase;
         &.active, &:hover {
             box-shadow: 0px 0px 45.4px #178c90;
         }
@@ -879,6 +881,7 @@ input {
     &__card-title {
         font-family: 'Neutral Face';
         color: white;
+        text-transform: uppercase;
     }
 
     &__info-button {
@@ -934,7 +937,7 @@ input {
     border: none;
     color: white;
     transition: 0.4s linear;
-
+    text-transform: uppercase;
     &:hover {
         box-shadow: 0px 0px 45.4px $icon_color;
     }
