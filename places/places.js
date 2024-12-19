@@ -53,8 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
  }
 
-
-
  const Data_loader = new data_loader(base_url, items_per_page, sort_by = '')
  Data_loader.load_data(current_page).then(data => {
   setTimeout(() => {

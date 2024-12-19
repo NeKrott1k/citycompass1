@@ -1,21 +1,25 @@
 @font-face {
   font-family: "Neutral Face";
   src: url(../fonts/NeutralFace-Bold.woff2) format(woff2);
+  src: url(../fonts/NeutralFace-Bold.ttf) format("truetype");
   font-weight: 900;
 }
 @font-face {
   font-family: "Neutral Face";
   src: url(../fonts/NeutralFace-regular.woff2) format(woff2);
+  src: url(../fonts/NeutralFace-regular.ttf) format("truetype");
   font-weight: 400;
 }
 @font-face {
   font-family: "AC Line";
   src: url(../fonts/ACLine.woff2) format(woff2);
+  src: url(../fonts/ACLine.ttf) format("truetype");
   font-weight: 200;
 }
 @font-face {
   font-family: "Rozovii Chulok";
   src: url(../fonts/rozoviichulok-regular.woff2) format(woff2);
+  src: url(../fonts/rozoviichulok-regular.ttf) format("truetype");
   font-weight: 200;
 }
 ul {
